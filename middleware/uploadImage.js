@@ -6,7 +6,7 @@ module.exports = (multer({
             cb(null, './public/upload/products')
         },
         filename: (req,file,cb) => {
-            cb(nul,Date.now().toString + "_" + file.originalname)
+            cb(null, Date.now().toString() + "_" + file.originalname)
         }
     }),
     fileFilter: (req,file,cb) => {
