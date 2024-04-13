@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 const uploadProducts = require('./middleware/uploadImage')
+const path = require('path');
 
 app.use(cors());
 
@@ -30,9 +31,13 @@ app.post("/upload-image", uploadProducts.single("image"), async (req,res) => {
     })
 
 
-   
-
 });
+
+
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+
 
 app.listen(8080, () => {
     console.log("Servidor iniciado na porta 8080: http://localhost:8080")
