@@ -20,7 +20,8 @@ app.post("/upload-image", uploadProducts.single("image"), async (req,res) => {
 
         return res.json({
             erro:false,
-            mensagem:"Upload realizado com sucesso!"
+            mensagem:"Upload realizado com sucesso!",
+						name:req.file.filename
         })
 
     }
